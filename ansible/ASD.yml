@@ -1,0 +1,6 @@
+---
+- hosts: '{{ host }}'
+  tasks:
+    - name: Create docker challenges
+      import_role:
+        name: challenge_hosts
