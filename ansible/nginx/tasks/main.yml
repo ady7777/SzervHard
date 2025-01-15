@@ -1,0 +1,23 @@
+---
+- name: Install Nginx and PHP
+  apt:
+    name:
+      - nginx
+      - php-fpm
+      - php-mysql
+    state: present
+- name: Deploy PHP
+  copy:
+    src: ./files/index.php
+    dest: /var/www/html/index.php
+- name: Config Nginx for PHP
+  copy:
+    src: ./files/default
+    dest: /etc/nginx/sites-available/default
+    owner: root
+    group: root
+    mode: 0644
+- name: Restart
+  service:
+    name: nginx
+    state: restarted

@@ -1,0 +1,6 @@
+---
+- hosts: '{{ host }}'
+  tasks:
+    - name: Install nginx
+      import_role:
+        name: nginx
