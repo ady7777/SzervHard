@@ -1,4 +1,9 @@
 ---
+- name: Update and upgrade apt packages
+  apt:
+    update_cache: yes
+    upgrade: dist
+
 - name: Install Nginx and PHP
   apt:
     name:

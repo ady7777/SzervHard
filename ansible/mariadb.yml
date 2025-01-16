@@ -1,0 +1,6 @@
+---
+- hosts: '{{ host }}'
+  tasks:
+    - name: Install MariaDB
+      import_role:
+        name: mariadb
