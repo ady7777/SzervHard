@@ -49,9 +49,9 @@ services:
     command:
       - --web.listen-address=:9100
       - --config.file=/exporter_exporter.yml
-      - --tls.server-cert=/certs/server-cert.pem
-      - --tls.server-key=/certs/server-key.pem
-      - --tls.client-ca=/certs/ca-cert.pem
+      - --tls.server-cert=/Certs/ServerCerts/server-cert.pem
+      - --tls.server-key=/Certs/ServerCerts/server-key.pem
+      - --tls.client-ca=/Certs/ServerCerts/ca-cert.pem
     networks:
       - monitoring
 
