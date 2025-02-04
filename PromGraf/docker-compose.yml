@@ -7,6 +7,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./Prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./Certs/ClientCerts:/certs
     ports:
       - "9090:9090"
     networks:
@@ -35,7 +36,22 @@ services:
     volumes:
       - /:/host:ro,rslave
     ports:
+      - "9090:9090"
+    networks:
+      - monitoring
+
+  exporter_exporter:
+    image: prometheus-community/exporter_exporter
+    ports:
       - "9100:9100"
+    volumes:
+      - ./Certs/ServerCerts:/certs
+    command:
+      - --web.listen-address=:9100
+      - --config.file=/exporter_exporter.yml
+      - --tls.server-cert=/certs/server-cert.pem
+      - --tls.server-key=/certs/server-key.pem
+      - --tls.client-ca=/certs/ca-cert.pem
     networks:
       - monitoring
 

@@ -1,0 +1,10 @@
+modules:
+  node:
+    method: http
+    http:
+      port: 9100
+      path: /metrics
+      validate: ""
+      exporters:
+        - name: node
+          uri: http://node-exporter:9100/metrics
