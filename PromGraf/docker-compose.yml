@@ -29,7 +29,7 @@ services:
 
   node-exporter:
     image: prom/node-exporter:latest
-    container_name: MonitoredNode
+    container_name: node-exporter
     restart: unless-stopped
     command:
       - '--path.rootfs=/host'
