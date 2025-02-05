@@ -7,7 +7,6 @@ services:
     restart: unless-stopped
     volumes:
       - ./Prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
-      - ./Certs/ClientCerts:/certs
     ports:
       - "9090:9090"
     networks:
@@ -47,6 +46,7 @@ services:
     volumes:
       - ./Nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./Nginx/.htpasswd:/etc/nginx/.htpasswd:ro
+      - ./Nginx/certs:/etc/nginx/certs:ro
     networks:
       - monitoring
 
