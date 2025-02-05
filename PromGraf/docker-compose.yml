@@ -7,8 +7,6 @@ services:
     restart: unless-stopped
     volumes:
       - ./Prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
-    ports:
-      - "9090:9090"
     networks:
       - monitoring
 
@@ -18,8 +16,6 @@ services:
     restart: unless-stopped
     volumes:
       - ./Grafana/provisioning:/etc/grafana/provisioning
-    ports:
-      - "3000:3000"
     networks:
       - monitoring
     depends_on:
@@ -43,6 +39,8 @@ services:
     restart: unless-stopped
     ports:
       - "9100:9100"
+      - "9090:9090"
+      - "443:3000"
     volumes:
       - ./Nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./Nginx/.htpasswd:/etc/nginx/.htpasswd:ro
