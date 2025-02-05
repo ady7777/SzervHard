@@ -4,5 +4,12 @@ datasources:
   - name: Prometheus
     type: prometheus
     access: proxy
-    url: http://prometheus:9090
+    url: https://prometheus:9090
     isDefault: true
+    jsonData:
+      tlsAuth: false
+      tlsAuthWithCACert: false
+      tlsSkipVerify: true
+    secureJsonData:
+      basicAuthUser: admin
+      basicAuthPassword: admin
