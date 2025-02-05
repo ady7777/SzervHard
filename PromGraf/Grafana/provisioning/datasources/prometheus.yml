@@ -11,6 +11,7 @@ datasources:
       tlsAuthWithCACert: false
       tlsSkipVerify: true
     secureJsonData:
+      basicAuth: true
       basicAuthUser: admin
       basicAuthPassword: admin
 
