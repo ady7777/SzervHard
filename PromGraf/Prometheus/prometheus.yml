@@ -11,6 +11,9 @@ scrape_configs:
     scheme: https
     tls_config:
       insecure_skip_verify: true
+    basic_auth:
+      username: admin
+      password: admin
     static_configs:
       - targets: ["nginx-auth:9100"]
         labels:
