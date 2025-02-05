@@ -6,12 +6,12 @@ datasources:
     access: proxy
     url: https://nginx-auth:9090
     isDefault: true
+    basicAuth: true
     jsonData:
       tlsAuth: false
       tlsAuthWithCACert: false
       tlsSkipVerify: true
     secureJsonData:
-      basicAuth: true
       basicAuthUser: admin
       basicAuthPassword: admin
 
