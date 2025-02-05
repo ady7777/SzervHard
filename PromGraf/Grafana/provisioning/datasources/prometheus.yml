@@ -8,6 +8,7 @@ datasources:
     isDefault: true
     basicAuth: true
     tlsSkipVerify: true
-    basicAuthUser: admin
-    basicAuthPassword: admin
+    secureJsonData:
+      basicAuthUser: admin
+      basicAuthPassword: admin
 
