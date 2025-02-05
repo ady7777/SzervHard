@@ -4,7 +4,7 @@ datasources:
   - name: Prometheus
     type: prometheus
     access: proxy
-    url: https://prometheus:9090
+    url: https://nginx-auth:9090
     isDefault: true
     jsonData:
       tlsAuth: false
