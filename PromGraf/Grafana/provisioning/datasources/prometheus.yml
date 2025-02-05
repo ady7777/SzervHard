@@ -7,6 +7,8 @@ datasources:
     url: https://nginx-auth:9090
     isDefault: true
     basicAuth: true
+    basicAuthUser: admin
+    basicAuthPassword: admin
     jsonData:
       tlsAuth: false
       tlsAuthWithCACert: false
