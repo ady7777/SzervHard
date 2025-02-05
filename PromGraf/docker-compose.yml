@@ -35,23 +35,18 @@ services:
     pid: host
     volumes:
       - /:/host:ro,rslave
-    ports:
-      - "9090:9090"
     networks:
       - monitoring
 
-  exporter_exporter:
-    image: prometheus-community/exporter_exporter
+  nginx-auth:
+    image: nginx:alpine
+    container_name: nginx-node-exporter
+    restart: unless-stopped
     ports:
       - "9100:9100"
     volumes:
-      - ./Certs/ServerCerts:/certs
-    command:
-      - --web.listen-address=:9100
-      - --config.file=/exporter_exporter.yml
-      - --tls.server-cert=/Certs/ServerCerts/server-cert.pem
-      - --tls.server-key=/Certs/ServerCerts/server-key.pem
-      - --tls.client-ca=/Certs/ServerCerts/ca-cert.pem
+      - ./Nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./Nginx/.htpasswd:/etc/nginx/.htpasswd:ro
     networks:
       - monitoring
 

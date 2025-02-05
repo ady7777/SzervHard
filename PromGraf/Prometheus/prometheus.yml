@@ -8,14 +8,10 @@ scrape_configs:
       - targets: ["localhost:9090"]
 
   - job_name: "node-exporter"
-    scheme: https
-    metrics_path: /metrics
-    tls_config:
-      ca_file: /certs/ca-cert.pem
-      cert_file: /certs/client-cert.pem 
-      key_file: /certs/client-key.pem
-      insecure_skip_verify: false
+    basic_auth:  # Add credentials
+      username: admin
+      password: admin
     static_configs:
-      - targets: ["exporter_exporter:9100"]
+      - targets: ["nginx-auth:9100"]
         labels:
           instance: "Ubi"
